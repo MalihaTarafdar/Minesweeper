@@ -10,7 +10,8 @@ Beginner, Intermediate, and Expert difficulties are available.
 * Intermediate = 16x16, 40 mines
 * Expert = 16x30, 99 mines
 
-_Note_: The first revealed square will be completely empty. 
+_Note_: The first revealed square will always be completely empty (no mine or number). 
+
 ---
 
 ## Theme
@@ -19,7 +20,7 @@ There are 3 themes:
 * Monochrome = black and white (created by "Black Squirrel")
 * Dark = dark mode (created by me)
 
-_Note_: Changing the theme will reset the game (will remove this in the future)
+_Note_: Changing the theme will reset the game (will remove this in the future).
 
 ---
 
