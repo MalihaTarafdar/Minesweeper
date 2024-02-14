@@ -6,7 +6,8 @@ public class Theme {
 	private Color menuForeground, menuBackground, menuSelectionForeground, menuSelectionBackground;
 
 	public Theme(String iconSet, Color primaryColor, Color highlightColor, Color shadowColor,
-			Color menuForeground, Color menuBackground, Color menuSelectionForeground, Color menuSelectionBackground) {
+			Color menuForeground, Color menuBackground, Color menuSelectionForeground,
+			Color menuSelectionBackground) {
 		this.iconSet = iconSet;
 		this.primaryColor = primaryColor;
 		this.highlightColor = highlightColor;
