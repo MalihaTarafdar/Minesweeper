@@ -1,40 +1,33 @@
 # Minesweeper
-A Minesweeper clone with some extra features. Created for CS Topics: Data Structures and Game Design 2019-2020. Uses Java Swing library. 
+A Minesweeper clone created using Java Swing. 
+
 Run `Minesweeper.jar` to play.
 
 ---
 
-## Game
-Beginner, Intermediate, and Expert difficulties are available. 
-* Beginner = 9x9, 10 mines
-* Intermediate = 16x16, 40 mines
-* Expert = 16x30, 99 mines
-
-_Note_: The first revealed square will always be completely empty (no mine or number). 
-
----
-
-## Theme
-There are 3 themes:
-* Default = same icons as the original Minesweeper
-* Monochrome = black and white (created by "Black Squirrel")
-* Dark = dark mode (created by me)
-
-_Note_: Changing the theme will reset the game (will remove this in the future).
+## Features
+* Classic Minesweeper gameplay
+* 3 difficulties
+	* Beginner - 9x9 grid, 10 mines
+	* Intermediate - 16x16 grid, 40 mines
+	* Expert - 16x30 grid, 99 mines
+* 3 themes
+	* Default (classic Minesweeper theme)
+	* Monochrome
+	* Dark
 
 ---
 
 ## Controls
-* `Left-click` to reveal an empty tile
-* `Right-click` an empty tile to cycle through flagged, unknown, and empty states
+* `Left-click` an unrevealed tile to reveal it
+* `Right-click` or `alt` + `left-click` an unrevealed tile to cycle through flagged, unknown, and empty states
 * Hold `middle-click` or `ctrl` + `left-click` on a tile to reveal its adjacent tiles
 
 ---
 
-## Screenshots
-### Default theme, beginner difficulty
-![Default theme, beginner difficulty](./screenshots/1.png)
-### Monochrome theme, intermediate difficulty
-![Monochrome theme, intermediate difficulty](./screenshots/2.png)
-### Dark theme, expert difficulty
-![Dark theme, expert difficulty](./screenshots/3.png)
+## Credits
+The sprites used in this project can be found [here](https://www.spriters-resource.com/pc_computer/minesweeper/sheet/19849/). 
+
+![sprite sheet](sprite-sheet.png)
+
+---

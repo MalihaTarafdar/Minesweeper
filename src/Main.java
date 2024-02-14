@@ -356,7 +356,7 @@ public class Main implements ActionListener, MouseListener {
 		menuBar = new JMenuBar();
 
 		// GAME MENU
-		JMenu gameMenu = getMenu("Game");
+		JMenu gameMenu = getMenu("New Game");
 		gameMenu.add(beginnerItem = getMenuItem("Beginner"));
 		gameMenu.add(intermediateItem = getMenuItem("Intermediate"));
 		gameMenu.add(expertItem = getMenuItem("Expert"));
@@ -370,12 +370,11 @@ public class Main implements ActionListener, MouseListener {
 		// CONTROLS MENU
 		JMenu controlsMenu = getMenu("Controls");
 		JLabel controlsLabel = new JLabel(
-			"<html><p>&bull; <b>Left-click</b> an empty tile to reveal it.</p>" +
-			"<p>&bull; <b>Right-click</b> an unrevealed tile to cycle through flagged, unknown, " +
-			"and empty states.</p>" +
+			"<html><p>&bull; <b>Left-click</b> an unrevealed tile to reveal it.</p>" +
+			"<p>&bull; <b>Right-click</b> or <b>alt + left-click</b> an unrevealed tile to " +
+			"cycle through flagged, unknown, and empty states.</p>" +
 			"<p>&bull; Hold <b>middle-click</b> or <b>ctrl + left-click</b> on a tile to reveal " +
-			"its adjacent tiles.</p>" +
-			"<p>&bull; Changing the icon set will <b>reset the game</b>.</p></html>"
+			"its adjacent tiles.</p>"
 		);
 		controlsLabel.setOpaque(true);
 		controlsLabel.setFont(labelFont.deriveFont(16f));
@@ -491,7 +490,8 @@ public class Main implements ActionListener, MouseListener {
 			int row = button.getY() / button.getHeight();
 			int col = button.getX() / button.getWidth();
 
-			if (SwingUtilities.isRightMouseButton(e)) {
+			if (SwingUtilities.isRightMouseButton(e) ||
+					(e.isAltDown() && SwingUtilities.isLeftMouseButton(e))) {
 				// cycle through flag, unknown, and empty tile
 				if (gameGrid[row][col].getIcon() == tileIcon) { // change to flag
 					gameGrid[row][col].setIcon(flagIcon);
@@ -503,7 +503,7 @@ public class Main implements ActionListener, MouseListener {
 					updateScoreboard(++flags, "flags");
 				} else if (gameGrid[row][col].getIcon() == unknownIcon) { // change to empty
 					gameGrid[row][col].setIcon(tileIcon);
-					gameGrid[row][col].setPressedIcon(revealedTileIcon);
+					gameGrid[row][col].setPressedIcon(tileIcon);
 				}
 			} else if (!e.isControlDown() && SwingUtilities.isLeftMouseButton(e)) {
 				// change reset button icon when tile is held down
@@ -545,7 +545,7 @@ public class Main implements ActionListener, MouseListener {
 			int row = button.getY() / button.getHeight();
 			int col = button.getX() / button.getWidth();
 
-			if (!e.isControlDown() && SwingUtilities.isLeftMouseButton(e)) {
+			if (!e.isControlDown() && !e.isAltDown() && SwingUtilities.isLeftMouseButton(e)) {
 				if (gameGrid[row][col].getIcon() != tileIcon) return;
 				// end game if mine is clicked
 				if ((Integer)gameGrid[row][col].getClientProperty("mines") == -1) {
@@ -585,6 +585,9 @@ public class Main implements ActionListener, MouseListener {
 						}
 					}
 				}
+			}
+			if (gameGrid[row][col].getIcon() == tileIcon) {
+				gameGrid[row][col].setPressedIcon(revealedTileIcon);
 			}
 		}
 	}
